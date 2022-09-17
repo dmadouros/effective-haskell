@@ -48,5 +48,17 @@ module Main where
 
   incrementAndShow' :: Int -> (Int -> (Int -> String) -> String) -> String
   incrementAndShow' num f = f (num + 1) show
-    
+
+  pointful :: [Int] -> Int -> Int
+  pointful xs n = foldr (+) 0 xs * n
+  
+  etaReduced :: [Int] -> Int -> Int
+  etaReduced xs = (*) (foldr (+) 0 xs)  
+
+  pointfree :: [Int] -> Int -> Int
+  pointfree = (*) . foldr (+) 0
+
   main = print "hi"
+
+  identity :: a -> a
+  identity val = val
