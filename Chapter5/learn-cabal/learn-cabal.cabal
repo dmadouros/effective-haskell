@@ -1,0 +1,55 @@
+cabal-version:      2.4
+name:               learn-cabal
+version:            0.1.0.0
+synopsis:           A sample project to learn how to use cabal
+
+-- A longer description of the package.
+-- description:
+homepage:           http://example.com
+
+-- A URL where users can report bugs.
+-- bug-reports:
+license:            BSD-3-Clause
+license-file:       LICENSE
+author:             David Madouros
+maintainer:         david.madouros@gmail.com
+
+-- A copyright notice.
+-- copyright:
+-- category:
+extra-source-files: CHANGELOG.md
+
+library
+    exposed-modules:  MyLib
+
+    -- Modules included in this library but not exported.
+    -- other-modules:
+
+    -- LANGUAGE extensions used by modules in this package.
+    -- other-extensions:
+    build-depends:    base ^>=4.14.3.0
+    hs-source-dirs:   src
+    default-language: Haskell2010
+    ghc-options: -O2 -Wall
+
+executable learn-cabal
+    main-is:          Main.hs
+
+    -- Modules included in this executable, other than Main.
+    -- other-modules:
+
+    -- LANGUAGE extensions used by modules in this package.
+    -- other-extensions:
+    build-depends:
+        base ^>=4.14.3.0,
+        learn-cabal
+
+    hs-source-dirs:   app
+    default-language: Haskell2010
+
+test-suite learn-cabal-test
+    default-language: Haskell2010
+    type:             exitcode-stdio-1.0
+    hs-source-dirs:   test
+    main-is:          MyLibTest.hs
+    build-depends:    base ^>=4.14.3.0
